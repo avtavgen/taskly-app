@@ -11,3 +11,8 @@ router = APIRouter(prefix="/api", tags=["health"])
 def health(repo: Repository):
     repo.session.execute(select(TodoRecord.id).limit(1))
     return {"status": "ok"}
+
+
+@router.get("/pr-health")
+def health():
+    return {"status": "ok"}
